@@ -20,9 +20,30 @@ while True:
     else:
         if user_input in data:
             meaning_list_index = 1
-            for item in data[user_input]:
-                print("Meaning {}:{}".format(meaning_list_index, item))
-                meaning_list_index += 1
+            if(type(data[user_input]) == list):
+                for item in data[user_input]:
+                    print("Meaning {}:{}".format(meaning_list_index, item))
+                    meaning_list_index += 1
+            else:
+                print(data[user_input])
+        elif user_input.title() in data:
+            value_title = user_input.title()
+            meaning_list_index = 1
+            if(type(value_title) == list):
+                for item in data[value_title]:
+                    print("Meaning {}:{}".format(meaning_list_index, item))
+                    meaning_list_index += 1
+            else:
+                print(data[value_title])
+        elif user_input.upper() in data:
+            value_upper = user_input.upper()
+            meaning_list_index = 1
+            if(type(value_upper) == list):
+                for item in data[value_upper]:
+                    print("Meaning {}:{}".format(meaning_list_index, item))
+                    meaning_list_index += 1
+            else:
+                print(data[value_upper])
         else:
             close_match = check_closest_match(user_input)
             print(close_match)
@@ -31,10 +52,15 @@ while True:
             accept_value_not = accept_value_not.upper()
             if(accept_value_not == 'Y'):
                 meaning_list_index = 1
-                for item in data[close_match]:
-                    print("Meaning {}:{}".format(meaning_list_index, item))
-                    meaning_list_index += 1
+                if(type(data[close_match]) == list):
+                    for item in data[close_match]:
+                        print("Meaning {}:{}".format(meaning_list_index, item))
+                        meaning_list_index += 1
+                else:
+                    print(data[close_match])
+            elif(accept_value_not == 'N'):
+                print("Item does not exist in dictionary.Please double check!!!")
             else:
-                print("Item Not found")
+                print("Did not understand your input.")
 
         
