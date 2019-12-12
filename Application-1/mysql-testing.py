@@ -9,7 +9,7 @@ database = "ardit700_pm1database"
 
 seek_cur = con.cursor()
 
-query = seek_cur.execute("SELECT * FROM Dictionary")
+query = seek_cur.execute("SELECT Definition FROM Dictionary WHERE Expression = 'rain'")
 results = seek_cur.fetchall()
 
 print(results)
